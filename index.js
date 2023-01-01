@@ -1,6 +1,8 @@
 const express = require('express');
 
 const path = require('path');
+const { getUsuarios } = require('./controller/usuarios');
+
 
 require('dotenv').config();
 
@@ -57,6 +59,9 @@ app.use(express.static(publicPath));
 //Mis Rutas
 
 app.use( '/api/login', require('./routes/auth') );
+app.use( '/api/usuarios', require('./routes/usuarios') );
+app.use( '/api/mensajes', require('./routes/mensajes') );
+
 
 
 server.listen( process.env.PORT, ( err )=> {
